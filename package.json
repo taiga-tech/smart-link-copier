@@ -2,7 +2,7 @@
     "name": "smart-link-copier",
     "displayName": "Smart link copier",
     "description": "A basic Plasmo extension.",
-    "version": "0.0.1",
+    "version": "0.0.1-alpha",
     "author": "Plasmo Corp. <taiga.dev.n@gmail.com>",
     "type": "module",
     "scripts": {
@@ -58,8 +58,12 @@
         "typescript-eslint": "^8.46.0"
     },
     "lint-staged": {
-        "*": [
-            "pnpm format"
+        "*.{js,mjs,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}": [
+            "prettier --write"
+        ],
+        "*.{js,jsx,ts,tsx}": [
+            "pnpm lint",
+            "pnpm exec tsc --noEmit --skipLibCheck"
         ]
     },
     "packageManager": "pnpm@10.18.2+sha512.9fb969fa749b3ade6035e0f109f0b8a60b5d08a1a87fdf72e337da90dcc93336e2280ca4e44f2358a649b83c17959e9993e777c2080879f3801e6f0d999ad3dd"

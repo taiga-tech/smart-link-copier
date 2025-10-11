@@ -1,12 +1,1 @@
-# Pre-commit hook for GitHub Navigator
-echo "🔍 Running pre-commit checks..."
-
-# Lint code with ESLint
-echo "🔧 Linting code with ESLint..."
-pnpm lint
-
-# Type check with TypeScript (excluding known chart.tsx issues)
-echo "📋 Type checking with TypeScript..."
-pnpm exec tsc --noEmit --skipLibCheck
-
-echo "✅ Pre-commit checks completed!"
+lint-staged
