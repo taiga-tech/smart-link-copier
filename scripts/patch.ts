@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-
 /**
  * Plasmo + Tailwind v4 Compatibility Patch
  *
@@ -8,7 +7,6 @@
  *
  * @see https://github.com/PlasmoHQ/plasmo/issues/1188
  */
-
 import fs from 'fs'
 import path from 'path'
 
@@ -19,7 +17,7 @@ const c = {
     green: '\x1b[32m',
     yellow: '\x1b[33m',
     blue: '\x1b[34m',
-    cyan: '\x1b[36m'
+    cyan: '\x1b[36m',
 }
 
 const log = (msg, color = 'reset') => console.log(`${c[color]}${msg}${c.reset}`)
@@ -57,32 +55,36 @@ const findPackageFiles = () => {
         const jitiPath = path.join(basePath, 'jiti')
         if (!fileExists(jitiPath)) return []
 
-        const targets = [
-            'dist/jiti.cjs',
-            'dist/babel.cjs',
-            'lib/jiti.cjs'
-        ]
+        const targets = ['dist/jiti.cjs', 'dist/babel.cjs', 'lib/jiti.cjs']
 
         return targets
-            .map(target => path.join(jitiPath, target))
+            .map((target) => path.join(jitiPath, target))
             .filter(fileExists)
     }
 
     // Find oxide files
     const findOxideFiles = (basePath) => {
-        const oxidePath = path.join(basePath, '@tailwindcss', 'oxide', 'index.js')
+        const oxidePath = path.join(
+            basePath,
+            '@tailwindcss',
+            'oxide',
+            'index.js'
+        )
         return fileExists(oxidePath) ? [oxidePath] : []
     }
 
     // Search pnpm structure
     if (fileExists(pnpmPath)) {
-        readDir(pnpmPath).forEach(entry => {
+        readDir(pnpmPath).forEach((entry) => {
             if (entry.startsWith('jiti@')) {
                 const packagePath = path.join(pnpmPath, entry, 'node_modules')
                 files.push(...findJitiFiles(packagePath))
             }
 
-            if (entry.startsWith('@tailwindcss+oxide@') || entry.startsWith('%40tailwindcss+oxide@')) {
+            if (
+                entry.startsWith('@tailwindcss+oxide@') ||
+                entry.startsWith('%40tailwindcss+oxide@')
+            ) {
                 const packagePath = path.join(pnpmPath, entry, 'node_modules')
                 files.push(...findOxideFiles(packagePath))
             }
@@ -107,7 +109,9 @@ const patchFile = (filePath) => {
         }
 
         const content = fs.readFileSync(filePath, 'utf8')
-        const hasNodeImports = content.includes('require("node:') || content.includes("require('node:")
+        const hasNodeImports =
+            content.includes('require("node:') ||
+            content.includes("require('node:")
 
         if (!hasNodeImports) {
             log(`✅ ${path.basename(filePath)} - already patched`, 'green')
@@ -138,7 +142,10 @@ const main = () => {
 
     if (files.length === 0) {
         log('⚠️  No files found to patch', 'yellow')
-        log('   This might mean packages are not installed or using different structure', 'yellow')
+        log(
+            '   This might mean packages are not installed or using different structure',
+            'yellow'
+        )
         return
     }
 
@@ -157,7 +164,10 @@ const main = () => {
     }
 
     if (successful === 0) {
-        log('💡 Try running: pnpm install && node scripts/patch-jiti.js', 'blue')
+        log(
+            '💡 Try running: pnpm install && node scripts/patch-jiti.js',
+            'blue'
+        )
     }
 }
 
