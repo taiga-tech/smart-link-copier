@@ -1,10 +1,6 @@
 # Pre-commit hook for GitHub Navigator
 echo "🔍 Running pre-commit checks..."
 
-# Format code with Prettier
-echo "📝 Formatting code with Prettier..."
-pnpm format
-
 # Lint code with ESLint
 echo "🔧 Linting code with ESLint..."
 pnpm lint
