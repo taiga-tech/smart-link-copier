@@ -13,6 +13,8 @@
         "build": "run-p build:*",
         "build:plasmo": "plasmo build",
         "build:next": "next build",
+        "typecheck": "tsc --noEmit",
+        "test:coverage": "echo 'TODO: Setup test framework and add coverage command'",
         "format": "prettier --write \"**/*.{js,mjs,jsx,json,ts,tsx,md,mdx,css,html,yml,yaml,scss,sass}\" --ignore-path .prettierignore",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",
