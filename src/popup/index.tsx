@@ -1,7 +1,11 @@
-import { Main } from "~components/main"
+import { Main } from '~components/main'
 
 function IndexPopup() {
-  return <Main />
+    return (
+        <div className="w-100">
+            <Main />
+        </div>
+    )
 }
 
 export default IndexPopup
