@@ -2,6 +2,24 @@
 
 Instructions for AI coding assistants using OpenSpec for spec-driven development.
 
+## Language Rules
+
+**IMPORTANT**: When working on this project:
+
+- **Think in English**: All internal reasoning, analysis, and problem-solving should be done in English
+- **Output in Japanese**: All visible output, documentation, comments, and communication with users must be in Japanese (日本語)
+
+This applies to:
+
+- Code comments
+- Documentation files
+- Commit messages
+- User-facing messages
+- Error messages
+- All written communication
+
+Exception: Technical terms, code identifiers, and this instruction file may remain in English.
+
 ## TL;DR Quick Checklist
 
 - Search existing work: `openspec spec list --long`, `openspec list` (use `rg` only for full-text search)
