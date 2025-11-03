@@ -1,0 +1,64 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Dependencies
+node_modules
+.pnp
+.pnp.*
+.pnp.js
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+pnpm-lock.yaml
+pnpm-workspace.yaml
+package-lock.json
+yarn.lock
+
+# Testing
+coverage
+
+# Build Outputs
+.next/
+out/
+build
+dist
+storybook-static/
+analyze/
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel
+.vercel
+
+# Cache
+.cache/*
+.turbo
+.contentlayer
+
+# TypeScript
+*.tsbuildinfo
+flow-typed
+
+# Misc
+.DS_Store
+*.pem
+**/**.svg
+
+# Generated files
+public/sw.js
+public/workbox-*
+
+# Editor
+!.vscode

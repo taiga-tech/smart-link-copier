@@ -1,0 +1,23 @@
+{
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "editor.tabSize": 2,
+    "[yaml]": { "editor.tabSize": 2 },
+    "[xml]": { "editor.tabSize": 4 },
+    "[md]": { "editor.tabSize": 4 },
+    "[mdx]": { "editor.tabSize": 4 },
+    "[json]": { "editor.tabSize": 4 },
+    "[jsonc]": { "editor.tabSize": 4 },
+    "[html]": { "editor.tabSize": 4 },
+    "[typescript]": { "editor.tabSize": 4 },
+    "[javascript]": { "editor.tabSize": 4 },
+    "[typescriptreact]": { "editor.tabSize": 4 },
+    "[javascriptreact]": { "editor.tabSize": 4 },
+    "html.format.templating": false,
+    "tailwindCSS.experimental.classRegex": [
+        [
+            "cva(?:<[^>]*>)?(([^)]*))",
+            "[\"'`]([^\"'`]*).*?[\"'`]",
+            "(?:twMerge|twJoin)\\(([^\\);]*)[\\);]"
+        ]
+    ]
+}
